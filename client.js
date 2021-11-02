@@ -110,17 +110,24 @@ console.log(createSalary(employees[3]));
 console.log(createSalary(employees[4]));
 console.log(createSalary(employees[5]));
 
-console.log(`newEmployeeArray: `, newEmployeeArray)
-
 function displayObjects () {
   let el = $('#employeeSalaries');
   el.empty();
   for (newEmployee of newEmployeeArray) {
     el.append(`
-      <li>Name: ${newEmployee.name} 
-      Bonus %: ${newEmployee.bonusPercentage} 
-      Total Compensation: ${newEmployee.totalCompensation} 
-      Total Bonus: ${newEmployee.totalBonus}</li>
+      <li>Name: ${newEmployee.name}
+      <ul>
+        <li>
+        Bonus Percent: ${newEmployee.bonusPercentage * 100}%
+        </li>
+        <li>
+        Total Compensation: $${newEmployee.totalCompensation} 
+        </li>
+        <li>
+        Total Bonus: $${newEmployee.totalBonus}
+        </li>
+      </ul>
+      </li>
     `);
   }
 }
@@ -131,10 +138,3 @@ function displayObjects () {
 
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
-
-
-
-console.log( employees );
-
-
-
