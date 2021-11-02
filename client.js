@@ -112,27 +112,14 @@ console.log(createSalary(employees[5]));
 
 console.log(`newEmployeeArray: `, newEmployeeArray)
 
-function displayObjects (newEmployeeArray) {
+function displayObjects () {
   let el = $('#employeeSalaries');
   el.empty();
-  console.log('New Employee Array Length: ' + newEmployeeArray.length);
-
-  for (let newEmployee of newEmployeeArray) {
+  for (newEmployee of newEmployeeArray) {
     el.append(`
       <li>${newEmployee.name} ${newEmployee.bonusPercentage} ${newEmployee.totalCompensation} ${newEmployee.totalBonus}</li>
     `);
   }
-
-/*
-  if (newEmployeeArray.length > 0) {
-    
-  }
-  else {
-    console.log('There are no salary objects to display.')
-  }
-*/
-
-
 }
 
 
