@@ -117,7 +117,10 @@ function displayObjects () {
   el.empty();
   for (newEmployee of newEmployeeArray) {
     el.append(`
-      <li>${newEmployee.name} ${newEmployee.bonusPercentage} ${newEmployee.totalCompensation} ${newEmployee.totalBonus}</li>
+      <li>Name: ${newEmployee.name} 
+      Bonus %: ${newEmployee.bonusPercentage} 
+      Total Compensation: ${newEmployee.totalCompensation} 
+      Total Bonus: ${newEmployee.totalBonus}</li>
     `);
   }
 }
