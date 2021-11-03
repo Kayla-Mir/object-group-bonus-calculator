@@ -54,12 +54,10 @@ function createSalary(employee) {
     totalCompensation: 0,
     totalBonus: 0
   }
-
   employeeSalary.name = employee.name;
   console.log(`Set salary name to employee name: ${employee.name}`);
-
   // Employee has 4 or more digits
-  if (employee.employeeNumber.length >= 4) {
+  if (employee.employeeNumber.length === 4) {
     employeeSalary.bonusPercentage += 0.05;
     console.log(`Employee has been here a long time! Add 5%. New bonus percentage: ${employeeSalary.bonusPercentage}`);
   }
@@ -81,7 +79,6 @@ function createSalary(employee) {
     employeeSalary.bonusPercentage += 0.1;
     console.log(`Rockstar employee! Add 10%. New bonus percentage: ${employeeSalary.bonusPercentage}`);
   }
-
   // Housecleaning
   if (employeeSalary.bonusPercentage > 0.13) {
     employeeSalary.bonusPercentage = 0.13;
@@ -91,27 +88,23 @@ function createSalary(employee) {
     employeeSalary.bonusPercentage = 0
     console.log(`Bonus percentage was 0 or negative. No bonus for substandard employee. New bonus percentage: ${employeeSalary.bonusPercentage}`);
   }
-
-  employeeSalary.totalCompensation = Number(employee.annualSalary) + employee.annualSalary * employeeSalary.bonusPercentage;
-  console.log(`Employee total compensation: $${employeeSalary.totalCompensation}`);
-  employeeSalary.totalBonus = Number(employee.annualSalary) * employeeSalary.bonusPercentage;
-  console.log(`Employee total bonus: $${employeeSalary.totalBonus}`);
+  employeeSalary.totalCompensation = Number(employee.annualSalary) 
+    + employee.annualSalary * employeeSalary.bonusPercentage;
+  console.log(`Employee total compensation: $${Math.round(employeeSalary.totalCompensation)}`);
+  employeeSalary.totalBonus = Number(employee.annualSalary) 
+    * employeeSalary.bonusPercentage;
+  console.log(`Employee total bonus: $${Math.round(employeeSalary.totalBonus)}`);
 
   newEmployeeArray.push(employeeSalary);
   
   return employeeSalary;
-
+}
+for (employee of employees) {
+  console.log(createSalary(employee));
 }
 
-console.log(createSalary(employees[0]));
-console.log(createSalary(employees[1]));
-console.log(createSalary(employees[2]));
-console.log(createSalary(employees[3]));
-console.log(createSalary(employees[4]));
-console.log(createSalary(employees[5]));
-
 function displayObjects () {
-  let el = $('#employeeSalaries');
+  const el = $('#employeeSalaries');
   el.empty();
   for (newEmployee of newEmployeeArray) {
     el.append(`
@@ -121,18 +114,16 @@ function displayObjects () {
         Bonus Percent: ${newEmployee.bonusPercentage * 100}%
         </li>
         <li>
-        Total Compensation: $${newEmployee.totalCompensation} 
+        Total Compensation: $${Math.round(newEmployee.totalCompensation)} 
         </li>
         <li>
-        Total Bonus: $${newEmployee.totalBonus}
+        Total Bonus: $${Math.round(newEmployee.totalBonus)}
         </li>
       </ul>
       </li>
     `);
   }
 }
-
-
 // This problem is massive! Break the problem down, take small steps, and test as you go.
 // What is the fewest lines of code I can write and test to get just a little closer?
 
