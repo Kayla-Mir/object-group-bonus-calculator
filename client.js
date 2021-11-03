@@ -109,17 +109,17 @@ function displayObjects () {
   for (newEmployee of newEmployeeArray) {
     el.append(`
       <li>Name: ${newEmployee.name}
-      <ul>
-        <li>
-        Bonus Percent: ${newEmployee.bonusPercentage * 100}%
-        </li>
-        <li>
-        Total Compensation: $${Math.round(newEmployee.totalCompensation)} 
-        </li>
-        <li>
-        Total Bonus: $${Math.round(newEmployee.totalBonus)}
-        </li>
-      </ul>
+        <ul>
+          <li>
+          Bonus Percent: ${newEmployee.bonusPercentage * 100}%
+          </li>
+          <li>
+          Total Compensation: $${Math.round(newEmployee.totalCompensation)} 
+          </li>
+          <li>
+          Total Bonus: $${Math.round(newEmployee.totalBonus)}
+          </li>
+        </ul>
       </li>
     `);
   }
